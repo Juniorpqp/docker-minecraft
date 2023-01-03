@@ -1,3 +1,3 @@
 # docker-minecraft
 
-# The process are described based on Centos 9.
+# The process is described based on Centos 9.
