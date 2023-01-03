@@ -48,7 +48,7 @@ touch server.properties
 vim server.properties
 
 # Download
-wget link
+wget https://github.com/Juniorpqp/docker-minecraft/blob/d388d30e257a1ee5a6c38f9a4e4319f6be625692/server.properties 
 
 # To keep your world and launch the machine at any time you can map a local folder with your config 
 # Run
