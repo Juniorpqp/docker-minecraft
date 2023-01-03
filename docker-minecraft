@@ -1,4 +1,4 @@
-## The configuration will use a bridge network in a diferent subnet.
+## The configuration will use a bridge network in a different subnet.
 
 # Create the network
 
@@ -17,18 +17,18 @@ docker network ls
   sysctl net.ipv4.conf.all.forwarding=1
   iptables -P FORWARD ACCEPT
 
-# Launch the minecraft docker
+# Launch the Minecraft docker
 
 ##############################################
 ####  ALWAY NEW GAME EVERY DOCKER LAUNCH  ####
 ##############################################
 
-#### You can launch the machine based on the default config, it's means, if you stop the docker and launch it again the new server, world,... will be started again.
+#### You can launch the machine based on the default config, it means if you stop the docker and launch it again the new server, world,... will be started again.
 
 # Run 
-docker run -dit --rm --name minecraft --network my-net -e MEMORY=1G -e EULA=TRUE -p 25565:25565  itzg/minecraft-server
+docker run -dit --rm --name Minecraft --network my-net -e MEMORY=1G -e EULA=TRUE -p 25565:25565  itzg/minecraft-server
 
-## You can adjust the memory, change the port,... (remember, if you change the port here allow it in the firewall too).
+## You can adjust the memory, the port,... (remember, if you change the port here allow it in the firewall too).
 
   ### FIREWALL RULES
   firewall-cmd --zone=trusted --add-port=25565/tcp --permanent
@@ -50,13 +50,13 @@ vim server.properties
 # Download
 wget link
 
-# To keep your world and launch the machine any time you can map a local folder with your config 
+# To keep your world and launch the machine at any time you can map a local folder with your config 
 # Run
 docker run -dit --rm --name minecraft --network my-net --mount type=bind,source=/home/minecraft/server-1,target=/data -e MEMORY=1G -e EULA=TRUE -p 25565:25565  itzg/minecraft-server
 
 ## You can adjust the memory, change the port,... (remember, if you change the port here allow it in the firewall and adjust the port in the file server.properties).
 
-## After launch the machine, note the content inside the folder:
+## After launching the machine, note the content inside the folder:
 [j@docker-server server1]# ls
 banned-ips.json      eula.txt   logs                         ops.json           usercache.json  whitelist.json
 banned-players.json  libraries  minecraft_server.1.19.3.jar  server.properties  versions        world
