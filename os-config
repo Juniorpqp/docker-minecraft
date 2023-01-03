@@ -1,4 +1,4 @@
-# Process to configure and install docker after the Centos OS was setup.
+# Process to configure and install docker after the Centos OS was set up.
 
 # Install Docker Swarm on Centos 7
 # Basic Installation
@@ -12,17 +12,17 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 # Install Docker-CE
 yum install docker-ce -y
 
-# Enable the service to start automaticaly and start docker.
+# Enable the service to start automatically and start docker.
 systemctl enable docker && systemctl start docker
 
-## Execute the procedure below if your server have a diferent user such as root. 
+## Execute the procedure below if your server has a different user such as root. 
 #Add regular user to docker group (allows user to exec docker commands without sudo)
 
 usermod -aG docker user
 
-# By default, docker archive the files in the directory /var/lib/docker. If you need change it, folow the steps:
+# By default, docker archive the files in the directory /var/lib/docker. If you need to change it, follow the steps:
 
-# Create the new directory of docker
+# Create the new directory of the docker
 mkdir -p /home/new_dir
 
 # Move docker to the new directory
@@ -43,5 +43,5 @@ vim /etc/docker/daemon.json
 # Start docker
 systemctl start docker
 
-# Check the new directory was setup on docker
+# Check the new directory was setup on the docker
 docker info -f '{{ .DockerRootDir}}'
