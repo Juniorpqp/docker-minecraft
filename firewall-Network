@@ -1,0 +1,36 @@
+
+
+### NEED TO EXECUTE AFTER REBOOT THE SERVER TO ALLOW FORWARD
+sysctl net.ipv4.conf.all.forwarding=1
+iptables -P FORWARD ACCEPT
+
+
+### To make the rule permanent need to add --permanent to the end of the command, if not, after reloading the firewall-cmd the rules that are not permanent and will be removed
+
+
+### ADD ETHERNET TO TRUSTED ZONE
+firewall-cmd --permanent --zone=trusted --add-interface=enp3s0
+
+### FIREWALL RULES
+### You can change the Minecraft default port - 25565 in the file server.propreties and change it in the firewall rule
+firewall-cmd --zone=trusted --add-port=25565/tcp
+
+
+### DELETE FIREWALL RULES (change the zones 
+firewall-cmd --zone=trusted --remove-port=25565/tcp
+
+#### INBFOS about the FIREWALL RULES
+firewall-cmd --get-active-zones
+firewall-cmd --zone=docker0 --query-masquerade
+firewall-cmd --zone=trusted --list-all
+
+### FIREWALL BLOCK ICMP
+##ADD
+firewall-cmd --zone=trusted --add-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply}
+firewall-cmd --zone=docker --add-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply}
+
+
+##REMOVE
+firewall-cmd --zone=XXXX --remove-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply}
+
+
