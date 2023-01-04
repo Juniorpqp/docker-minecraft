@@ -65,5 +65,6 @@ banned-players.json  libraries  minecraft_server.1.19.3.jar  server.properties  
   firewall-cmd --zone=trusted --add-port=25565/tcp --permanent
   firewall-cmd --reload
 
-
+## Connect to the Minecraft server (cli)
+docker exec  minecraft-1 rcon-cli
 
