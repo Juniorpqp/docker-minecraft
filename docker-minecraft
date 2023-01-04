@@ -66,5 +66,5 @@ banned-players.json  libraries  minecraft_server.1.19.3.jar  server.properties  
   firewall-cmd --reload
 
 ## Connect to the Minecraft server (cli)
-docker exec  minecraft-1 rcon-cli
+docker exec -i minecraft-1 rcon-cli
 
